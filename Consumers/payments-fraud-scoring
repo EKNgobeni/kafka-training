@@ -1,6 +1,6 @@
 kubectl exec kafka-0 -- kafka-console-consumer \
   --bootstrap-server kafka-service:9092 \
-  --topic digital-payments-payment-events \
+  --topic digitalpayments-paymentevents-delete \
   --group payments-fraud-scoring \
   --from-beginning \
   --property print.key=true \

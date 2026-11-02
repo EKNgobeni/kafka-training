@@ -1,7 +1,7 @@
 kubectl exec kafka-0 -- kafka-topics \
   --bootstrap-server kafka-service:9092 \
   --create --if-not-exists \
-  --topic digitalpayments.notifications.delete \
+  --topic digitalpayments-notifications-delete \
   --partitions 60 \
   --replication-factor 3 \
   --config retention.ms=604800000 \

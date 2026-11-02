@@ -1,6 +1,6 @@
 kubectl exec kafka-0 -- kafka-console-consumer \
   --bootstrap-server kafka-service:9092 \
-  --topic digitalpayments.paymentevents.delete \
+  --topic digitalpayments-paymentevents-delete \
   --group payments-console-inspection \
   --from-beginning \
   --property print.key=true \
