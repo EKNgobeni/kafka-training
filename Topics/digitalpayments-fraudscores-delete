@@ -1,4 +1,5 @@
 kubectl exec kafka-0 -- kafka-topics \
+kubectl exec -it kafka-0 -- kafka-topics \
   --bootstrap-server kafka-service:9092 \
   --create --if-not-exists \
   --topic digitalpayments-fraudscores-delete \

@@ -1,0 +1,68 @@
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+digital-payments-fraud-scores topic events:
+
+Scoring follow the rules below:
+  HIGH_VALUE +40 (>= R50,000), ELEVATED_VALUE +20 (>= R10,000),
+  NEW_DEVICE +25, OFF_HOURS +15 (00:00-04:59 SAST).
+  Score >= 60 is High, >= 30 is Medium, otherwise Low.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#  PAY-000001 Fraud: R2,500, known device, daytime -> score 0
+PAY-000001:
+    {
+        "event_id": "FSCR-00001",
+        "event_type": "FraudScoreLow",
+        "schema_version": 1,
+        "scored_at": "2026-11-02T08:00:00Z",
+        "payment_id": "PAY-000001",
+        "source_event_id": "PEVT-01-01",
+        "customer_id": "CUST-0001",
+        "score": 0,
+        "reasons": [],
+    }
+
+    
+# PAY-000002 Fraud: R60,000, new device, 02:30 SAST -> 40 + 25 + 15 = 80
+PAY-000002:
+    {
+        "event_id": "FSCR-00002",
+        "event_type": "FraudScoreHigh",
+        "schema_version": 1,
+        "scored_at": "2026-11-02T00:30:00Z",
+        "payment_id": "PAY-000002",
+        "source_event_id": "PEVT-02-01",
+        "customer_id": "CUST-0002",
+        "score": 80,
+        "reasons": ["HIGH_VALUE", "NEW_DEVICE", "OFF_HOURS"],
+    }
+
+
+# PAY-000003 Fraud: R12,000, known device, daytime -> 20
+PAY-000003:
+    {
+        "event_id": "FSCR-00003",
+        "event_type": "FraudScoreLow",
+        "schema_version": 1,
+        "scored_at": "2026-11-02T09:10:00Z",
+        "payment_id": "PAY-000003",
+        "source_event_id": "PEVT-03-01",
+        "customer_id": "CUST-0003",
+        "score": 20,
+        "reasons": ["ELEVATED_VALUE"],
+    }
+
+
+# PAY-000004 Fraud: R500, new device, daytime -> 25
+PAY-000004:
+    {
+        "event_id": "FSCR-00004",
+        "event_type": "FraudScoreLow",
+        "schema_version": 1,
+        "scored_at": "2026-11-02T10:00:00Z",
+        "payment_id": "PAY-000004",
+        "source_event_id": "PEVT-04-01",
+        "customer_id": "CUST-0004",
+        "score": 25,
+        "reasons": ["NEW_DEVICE"],
+    }
+

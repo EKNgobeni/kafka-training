@@ -1,0 +1,84 @@
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+digital-payments-notifications topic events.
+
+Event types catered for :
+  PaymentValidated -> PaymentApproved
+  PaymentNotAuthorised, PaymentInvalidated, PaymentNotCompleted -> PaymentFailed
+  PaymentCompleted sends nothing.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+ # PAY-000001 notification : PaymentValidated -> PaymentApproved
+ PAY-000001:
+    {
+        "event_id": "NTFY-00001",
+        "event_type": "PaymentApproved",
+        "schema_version": 1,
+        "sent_at": "2026-11-02T08:00:03Z",
+        "payment_id": "PAY-000001",
+        "source_event_id": "PEVT-01-03",
+        "customer_id": "CUST-0001",
+        "channel": "SMS",
+        "message": "Your payment of R2,500.00 to MERCH-0042 was approved.",
+    }
+
+
+    # PAY-000002 notification : PaymentNotAuthorised -> PaymentFailed
+PAY-000002:    
+    {
+        "event_id": "NTFY-00002",
+        "event_type": "PaymentFailed",
+        "schema_version": 1,
+        "sent_at": "2026-11-02T00:30:02Z",
+        "payment_id": "PAY-000002",
+        "source_event_id": "PEVT-02-02",
+        "customer_id": "CUST-0002",
+        "channel": "SMS",
+        "message": "Your payment of R60,000.00 to MERCH-0077 did not go through.",
+    }
+
+
+    # PAY-000003 notification : PaymentValidated -> PaymentApproved
+PAY-000003:    
+    {
+        "event_id": "NTFY-00003",
+        "event_type": "PaymentApproved",
+        "schema_version": 1,
+        "sent_at": "2026-11-02T09:10:03Z",
+        "payment_id": "PAY-000003",
+        "source_event_id": "PEVT-03-03",
+        "customer_id": "CUST-0003",
+        "channel": "SMS",
+        "message": "Your payment of R12,000.00 to MERCH-0042 was approved.",
+    }
+
+
+    # PAY-000003 notification : PaymentNotCompleted -> PaymentFailed
+PAY-000003:    
+    {
+        "event_id": "NTFY-00004",
+        "event_type": "PaymentFailed",
+        "schema_version": 1,
+        "sent_at": "2026-11-02T09:10:06Z",
+        "payment_id": "PAY-000003",
+        "source_event_id": "PEVT-03-04",
+        "customer_id": "CUST-0003",
+        "channel": "SMS",
+        "message": "Your payment of R12,000.00 to MERCH-0042 did not go through.",
+    }
+
+
+    # PAY-000004 notification : PaymentInvalidated -> PaymentFailed
+PAY-000004:    
+    {
+        "event_id": "NTFY-00005",
+        "event_type": "PaymentFailed",
+        "schema_version": 1,
+        "sent_at": "2026-11-02T10:00:03Z",
+        "payment_id": "PAY-000004",
+        "source_event_id": "PEVT-04-03",
+        "customer_id": "CUST-0004",
+        "channel": "SMS",
+        "message": "Your payment of R500.00 to MERCH-0019 did not go through.",
+    }

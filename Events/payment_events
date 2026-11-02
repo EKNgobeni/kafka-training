@@ -1,0 +1,274 @@
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+digital-payments-payment-events topic events.
+
+Payments covered:
+  PAY-000001: approved end to end (Initiated, Authorised, Validated, Completed)
+  PAY-000002: declined at authorisation (Initiated, NotAuthorised)
+  PAY-000003: validated, then settlement failed (Initiated, Authorised, Validated, NotCompleted)
+  PAY-000004: invalidated at validation (Initiated, Authorised, Invalidated)
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+PAY-000001: 
+   {
+        "event_id": "PEVT-01-01",
+        "event_type": "PaymentInitiated",
+        "schema_version": 1,
+        "occurred_at": "2026-11-02T08:00:00Z",
+        "payment_id": "PAY-000001",
+        "sequence_no": 1,
+        "customer_id": "CUST-0001",
+        "payer_account": "1234",
+        "payee_account": "9876",
+        "merchant_id": "MERCH-0042",
+        "amount": 2500,
+        "currency": "ZAR",
+        "channel": "MOBILE_APP",
+        "device_id": "D01",
+        "device_is_new": False,
+        "reason_code": None,
+    }
+
+PAY-000001: 
+    {
+        "event_id": "PEVT-01-02",
+        "event_type": "PaymentAuthorised",
+        "schema_version": 1,
+        "occurred_at": "2026-11-02T08:00:01Z",
+        "payment_id": "PAY-000001",
+        "sequence_no": 2,
+        "customer_id": "CUST-0001",
+        "payer_account": "1234",
+        "payee_account": "9876",
+        "merchant_id": "MERCH-0042",
+        "amount": 2500,
+        "currency": "ZAR",
+        "channel": "MOBILE_APP",
+        "device_id": "D01",
+        "device_is_new": False,
+        "reason_code": None,
+    }
+
+PAY-000001: 
+    {
+        "event_id": "PEVT-01-03",
+        "event_type": "PaymentValidated",
+        "schema_version": 1,
+        "occurred_at": "2026-11-02T08:00:02Z",
+        "payment_id": "PAY-000001",
+        "sequence_no": 3,
+        "customer_id": "CUST-0001",
+        "payer_account": "1234",
+        "payee_account": "9876",
+        "merchant_id": "MERCH-0042",
+        "amount": 2500,
+        "currency": "ZAR",
+        "channel": "MOBILE_APP",
+        "device_id": "D01",
+        "device_is_new": False,
+        "reason_code": None,
+    }
+
+PAY-000001: 
+    {
+        "event_id": "PEVT-01-04",
+        "event_type": "PaymentCompleted",
+        "schema_version": 1,
+        "occurred_at": "2026-11-02T08:00:04Z",
+        "payment_id": "PAY-000001",
+        "sequence_no": 4,
+        "customer_id": "CUST-0001",
+        "payer_account": "1234",
+        "payee_account": "9876",
+        "merchant_id": "MERCH-0042",
+        "amount": 2500,
+        "currency": "ZAR",
+        "channel": "MOBILE_APP",
+        "device_id": "D01",
+        "device_is_new": False,
+        "reason_code": None,
+    }
+
+    
+PAY-000002:
+    {
+        "event_id": "PEVT-02-01",
+        "event_type": "PaymentInitiated",
+        "schema_version": 1,
+        "occurred_at": "2026-11-02T00:30:00Z",
+        "payment_id": "PAY-000002",
+        "sequence_no": 1,
+        "customer_id": "CUST-0002",
+        "payer_account": "5566",
+        "payee_account": "1200",
+        "merchant_id": "MERCH-0077",
+        "amount": 6000000,
+        "currency": "ZAR",
+        "channel": "WEB",
+        "device_id": "D55",
+        "device_is_new": True,
+        "reason_code": None,
+    }
+
+PAY-000002:
+    {
+        "event_id": "PEVT-02-02",
+        "event_type": "PaymentNotAuthorised",
+        "schema_version": 1,
+        "occurred_at": "2026-11-02T00:30:01Z",
+        "payment_id": "PAY-000002",
+        "sequence_no": 2,
+        "customer_id": "CUST-0002",
+        "payer_account": "5566",
+        "payee_account": "1200",
+        "merchant_id": "MERCH-0077",
+        "amount": 6000000,
+        "currency": "ZAR",
+        "channel": "WEB",
+        "device_id": "D55",
+        "device_is_new": True,
+        "reason_code": "INSUFFICIENT_FUNDS",
+    }
+
+
+PAY-000003:
+    {
+        "event_id": "PEVT-03-01",
+        "event_type": "PaymentInitiated",
+        "schema_version": 1,
+        "occurred_at": "2026-11-02T09:10:00Z",
+        "payment_id": "PAY-000003",
+        "sequence_no": 1,
+        "customer_id": "CUST-0003",
+        "payer_account": "4021",
+        "payee_account": "7788",
+        "merchant_id": "MERCH-0042",
+        "amount": 1200000,
+        "currency": "ZAR",
+        "channel": "MOBILE_APP",
+        "device_id": "D17",
+        "device_is_new": False,
+        "reason_code": None,
+    }
+
+PAY-000003:
+    {
+        "event_id": "PEVT-03-02",
+        "event_type": "PaymentAuthorised",
+        "schema_version": 1,
+        "occurred_at": "2026-11-02T09:10:01Z",
+        "payment_id": "PAY-000003",
+        "sequence_no": 2,
+        "customer_id": "CUST-0003",
+        "payer_account": "4021",
+        "payee_account": "7788",
+        "merchant_id": "MERCH-0042",
+        "amount": 1200000,
+        "currency": "ZAR",
+        "channel": "MOBILE_APP",
+        "device_id": "D17",
+        "device_is_new": False,
+        "reason_code": None,
+    }
+
+PAY-000003:
+    {
+        "event_id": "PEVT-03-03",
+        "event_type": "PaymentValidated",
+        "schema_version": 1,
+        "occurred_at": "2026-11-02T09:10:02Z",
+        "payment_id": "PAY-000003",
+        "sequence_no": 3,
+        "customer_id": "CUST-0003",
+        "payer_account": "4021",
+        "payee_account": "7788",
+        "merchant_id": "MERCH-0042",
+        "amount": 1200000,
+        "currency": "ZAR",
+        "channel": "MOBILE_APP",
+        "device_id": "D17",
+        "device_is_new": False,
+        "reason_code": None,
+    }
+
+PAY-000003:
+    {
+        "event_id": "PEVT-03-04",
+        "event_type": "PaymentNotCompleted",
+        "schema_version": 1,
+        "occurred_at": "2026-11-02T09:10:05Z",
+        "payment_id": "PAY-000003",
+        "sequence_no": 4,
+        "customer_id": "CUST-0003",
+        "payer_account": "4021",
+        "payee_account": "7788",
+        "merchant_id": "MERCH-0042",
+        "amount": 1200000,
+        "currency": "ZAR",
+        "channel": "MOBILE_APP",
+        "device_id": "D17",
+        "device_is_new": False,
+        "reason_code": "NETWORK_TIMEOUT",
+    }
+
+
+PAY-000004:
+    {
+        "event_id": "PEVT-04-01",
+        "event_type": "PaymentInitiated",
+        "schema_version": 1,
+        "occurred_at": "2026-11-02T10:00:00Z",
+        "payment_id": "PAY-000004",
+        "sequence_no": 1,
+        "customer_id": "CUST-0004",
+        "payer_account": "8810",
+        "payee_account": "3344",
+        "merchant_id": "MERCH-0019",
+        "amount": 50000,
+        "currency": "ZAR",
+        "channel": "USSD",
+        "device_id": "D90",
+        "device_is_new": True,
+        "reason_code": None,
+    }
+
+PAY-000004:
+    {
+        "event_id": "PEVT-04-02",
+        "event_type": "PaymentAuthorised",
+        "schema_version": 1,
+        "occurred_at": "2026-11-02T10:00:01Z",
+        "payment_id": "PAY-000004",
+        "sequence_no": 2,
+        "customer_id": "CUST-0004",
+        "payer_account": "8810",
+        "payee_account": "3344",
+        "merchant_id": "MERCH-0019",
+        "amount": 50000,
+        "currency": "ZAR",
+        "channel": "USSD",
+        "device_id": "D90",
+        "device_is_new": True,
+        "reason_code": None,
+    }
+
+PAY-000004:
+    {
+        "event_id": "PEVT-04-03",
+        "event_type": "PaymentInvalidated",
+        "schema_version": 1,
+        "occurred_at": "2026-11-02T10:00:02Z",
+        "payment_id": "PAY-000004",
+        "sequence_no": 3,
+        "customer_id": "CUST-0004",
+        "payer_account": "8810",
+        "payee_account": "3344",
+        "merchant_id": "MERCH-0019",
+        "amount": 50000,
+        "currency": "ZAR",
+        "channel": "USSD",
+        "device_id": "D90",
+        "device_is_new": True,
+        "reason_code": "INVALID_BENEFICIARY",
+    }
