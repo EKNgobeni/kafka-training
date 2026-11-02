@@ -1,0 +1,16 @@
+kubectl exec -i kafka-0 -- kafka-console-producer \
+  --bootstrap-server kafka-service:9092 \
+  --topic digitalpayments.paymentevents.delete \
+  --property parse.key=true \
+  --property key.separator=: \
+  --producer-property acks=all \
+  --producer-property enable.idempotence=true \
+  --producer-property retries=2147483647 \
+  --producer-property max.in.flight.requests.per.connection=5 \
+  --producer-property compression.type=zstd \
+  --producer-property linger.ms=5 \
+  --producer-property batch.size=131072 \
+  --producer-property retry.backoff.ms=100 \
+  --producer-property retry.backoff.max.ms=1000 \
+  --producer-property request.timeout.ms=3000 \
+  --producer-property delivery.timeout.ms=10000

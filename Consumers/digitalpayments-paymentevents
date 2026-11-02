@@ -1,0 +1,17 @@
+kubectl exec kafka-0 -- kafka-console-consumer \
+  --bootstrap-server kafka-service:9092 \
+  --topic digitalpayments.paymentevents.delete \
+  --group payments-console-inspection \
+  --from-beginning \
+  --property print.key=true \
+  --property key.separator=: \
+  --consumer-property enable.auto.commit=false \
+  --consumer-property auto.offset.reset=earliest \
+  --consumer-property max.poll.records=200 \
+  --consumer-property session.timeout.ms=45000 \
+  --consumer-property heartbeat.interval.ms=3000 \
+  --consumer-property max.poll.interval.ms=300000 \
+  --consumer-property fetch.min.bytes=1 \
+  --consumer-property fetch.max.wait.ms=100 \
+  --consumer-property max.partition.fetch.bytes=1048576 \
+  --consumer-property partition.assignment.strategy=org.apache.kafka.clients.consumer.CooperativeStickyAssignor
