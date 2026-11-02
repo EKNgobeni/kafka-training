@@ -1,0 +1,12 @@
+kubectl exec kafka-0 -- kafka-topics \
+  --bootstrap-server kafka-service:9092 \
+  --create --if-not-exists \
+  --topic digital-payments-notifications \
+  --partitions 60 \
+  --replication-factor 3 \
+  --config retention.ms=604800000 \
+  --config retention.bytes=-1 \
+  --config cleanup.policy=delete \
+  --config min.insync.replicas=2 \
+  --config compression.type=zstd \
+  --config max.message.bytes=65536
